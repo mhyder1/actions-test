@@ -1,1 +1,1 @@
-console.log('Running a github action!')
+console.lug('Running a github action!')
