@@ -37,3 +37,6 @@ jobs:
       # Runs a console log using node
       - name: Run console.log with node
         run: node index.js
+      # Run cowsay
+      - name: Run cowsay package
+        run: npx cowsay 'Just ran a github action!!!'
