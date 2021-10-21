@@ -54,8 +54,7 @@ jobs:
       # Run cowsay
       - name: Run cowsay package
         run: npx cowsay 'Just ran a github action!!!'
-      - name: Log job
-        run: "echo ${{ jobs.run-action }}"
+
 
       # - name: Log info
       # - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
