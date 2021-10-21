@@ -1,6 +1,7 @@
 const { Octokit } = require("@octokit/core");
 // const octokit = require('@octokit/rest')()
 const octokit = new Octokit();
+//$GITHUB_SHA   github commit number
 console.log(process.env.obj)
 async function getBuildStats() {
     try {
@@ -11,12 +12,12 @@ async function getBuildStats() {
           })
         // console.log(JSON.stringify(data, null, 2))
         const job_id = jobs[0].id
-        let { data } = await octokit.request('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', {
+        let { data : { steps } } = await octokit.request('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', {
             owner: 'mhyder1',
             repo: 'actions-test',
             job_id,
         })
-        console.log({data})
+        console.log(JSON.stringify(steps, null, 2))
     } catch(error) {
         console.log(error)
     }
