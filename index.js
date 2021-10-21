@@ -8,7 +8,7 @@ async function getBuildStats() {
         let { data } = await octokit.request('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', {
             owner: 'mhyder1',
             repo: 'actions-test',
-            job_id: 3,
+            job_id: 'run-actions',
             // workflow_file_name: 'CI.yml',
         })
         console.log(data)
