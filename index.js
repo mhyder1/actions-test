@@ -17,8 +17,8 @@ async function getBuildStats() {
         //     repo: 'actions-test',
         //     job_id,
         // })
-        // console.log(JSON.stringify(jobs, null, 2))
-        console.log(jobs)
+        console.log(JSON.stringify(jobs[0].steps, null, 2))
+        // console.log(jobs[0].steps)
     } catch(error) {
         console.log(error)
     }
