@@ -24,6 +24,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
+    steps:
       - uses: octokit/request-action@v2.x
         id: get_latest_release
         with:
