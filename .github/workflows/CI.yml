@@ -57,6 +57,6 @@ jobs:
 
 
       - name: Log info
-      - run: "echo: ${{ github.job }}"
+        run: "echo: ${{ github.job }}"
 
 
