@@ -7,16 +7,16 @@ async function getBuildStats() {
         let test = await octokit.request('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', {
             owner: 'mhyder1',
             repo: 'actions-test',
-            run_id: 'Run cowsay package'
+            run_id: process.env.runId
           })
-        console.log(test)
+        console.log({test})
         // let { data } = await octokit.request('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', {
         //     owner: 'mhyder1',
         //     repo: 'actions-test',
         //     job_id: 'run-actions',
         //     // workflow_file_name: 'CI.yml',
         // })
-        console.log(data)
+        // console.log(data)
     } catch(error) {
         console.log(error)
     }

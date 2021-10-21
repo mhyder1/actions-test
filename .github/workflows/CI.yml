@@ -62,6 +62,6 @@ jobs:
         run: echo ${{ github.job }} ${{github.run_id}} # run-actions
 
       - name: run id
-        run: node log.js
+        run: node index.js
 
 
