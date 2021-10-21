@@ -57,6 +57,9 @@ jobs:
 
 
       - name: Log info
-        run: echo ${{ github.job }}
+        run: echo ${{ github.job }} ${{github.run_id}} # run-actions
+
+      - name: github
+        run: echo ${{ github }}
 
 
