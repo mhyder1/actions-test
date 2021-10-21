@@ -1,6 +1,6 @@
 const { Octokit } = require("@octokit/rest");
 // const octokit = require('@octokit/rest')()
-const octokit = new Octokit({ auth: `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` });
+const octokit = new Octokit();
 // const octokit = new Octokit()
 // "GET /users"
 
