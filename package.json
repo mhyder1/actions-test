@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/mhyder1/actions-test/issues"
   },
-  "homepage": "https://github.com/mhyder1/actions-test#readme"
+  "homepage": "https://github.com/mhyder1/actions-test#readme",
+  "dependencies": {
+    "@octokit/core": "^3.5.1",
+    "@octokit/request": "^5.6.2",
+    "@octokit/rest": "^18.12.0"
+  }
 }

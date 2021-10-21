@@ -24,6 +24,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: octokit/request-action@v2.x
+        id: get_latest_release
+        with:
+          route: GET /repos/{owner}/{repo}/actions/jobs/{job_id}
+          owner: mhyder1
+          repo: actions-test
+          job_id: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -37,6 +46,14 @@ jobs:
       # Runs a console log using node
       - name: Run console.log with node
         run: node index.js
+
+
+
       # Run cowsay
       - name: Run cowsay package
         run: npx cowsay 'Just ran a github action!!!'
+
+      - name: Log info
+      - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
+
+
