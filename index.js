@@ -4,12 +4,12 @@ const octokit = new Octokit();
 
 async function getBuildStats() {
     try {
-        let test = await octokit.request('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', {
+        let { data } = await octokit.request('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', {
             owner: 'mhyder1',
             repo: 'actions-test',
             run_id: process.env.runId
           })
-        console.log({test})
+        console.log(JSON.stringify(data, null, 2))
         // let { data } = await octokit.request('GET /repos/{owner}/{repo}/actions/jobs/{job_id}', {
         //     owner: 'mhyder1',
         //     repo: 'actions-test',
