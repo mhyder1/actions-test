@@ -1,7 +1,7 @@
 const { Octokit } = require("@octokit/core");
 // const octokit = require('@octokit/rest')()
 const octokit = new Octokit();
-
+console.log(process.env.obj)
 async function getBuildStats() {
     try {
         let { data: { jobs } } = await octokit.request('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', {
