@@ -53,13 +53,15 @@ jobs:
 
       # Run cowsay
       - name: Run cowsay package
+        run: echo run-id=${{github.run_id}} >> $GITHUB_ENV
+
         run: npx cowsay 'Just ran a github action!!!'
 
 
       - name: Log info
         run: echo ${{ github.job }} ${{github.run_id}} # run-actions
 
-      - name: github
-        run: echo ${{ github }}
+      - name: run id
+        run: echo ${{ env.run-id }}
 
 
