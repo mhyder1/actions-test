@@ -15,6 +15,7 @@ jobs:
           owner: mhyder1
           repo: actions-test
           job_id: build
+          mediaType: {}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo latest release: ${{ steps.get_latest_release.outputs.data }}"
