@@ -46,8 +46,8 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       # Runs a console log using node
-      - name: Run console.log with node
-        run: node index.js
+      # - name: Run console.log with node
+      #   run: node index.js
 
 
 

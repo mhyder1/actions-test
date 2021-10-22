@@ -18,7 +18,7 @@ async function getBuildStats() {
         //     job_id,
         // })
         // console.log(JSON.stringify(jobs[0].steps, null, 2))
-        // console.log(jobs[0].steps)
+        console.log(jobs[0].steps)
         getTime(jobs[0].steps)
     } catch(error) {
         console.log(error)
