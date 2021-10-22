@@ -17,8 +17,9 @@ async function getBuildStats() {
         //     repo: 'actions-test',
         //     job_id,
         // })
-        console.log(JSON.stringify(jobs[0].steps, null, 2))
+        // console.log(JSON.stringify(jobs[0].steps, null, 2))
         // console.log(jobs[0].steps)
+        getTime(jobs[0].steps)
     } catch(error) {
         console.log(error)
     }
@@ -26,4 +27,15 @@ async function getBuildStats() {
 
 getBuildStats()
 
+
+  function getTime(steps) {
+    steps = steps.find(item => item.name === 'build')
+    let {started_at, completed_at } = steps
+    started_at = new Date(started_at).getTime()
+    completed_at = new Date(completed_at).getTime()
+    let elapsed = completed_at - started_at
+    console.log(new Date(elapsed).getMinutes(), new Date(elapsed).getSeconds())
+  }
+  
+// console.log(started_at, completed_at)
 console.log('Running a github action!')
