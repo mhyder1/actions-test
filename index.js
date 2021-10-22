@@ -29,7 +29,7 @@ getBuildStats()
 
 
   function getTime(steps) {
-    steps = steps.find(item => item.name === 'build')
+    steps = steps.find(item => item.name === 'Set up job')
     let {started_at, completed_at } = steps
     started_at = new Date(started_at).getTime()
     completed_at = new Date(completed_at).getTime()
