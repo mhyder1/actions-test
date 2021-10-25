@@ -13,6 +13,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  START_TIME: null
+  END_TIME: null
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "run-action". run-action is the job_id
@@ -72,11 +76,11 @@ jobs:
           echo $GITHUB_SHA
           echo ${{secrets.DATADOG_API_KEY}}
           echo commitNumber=$GITHUB_SHA >> $GITHUB_ENV
-          NEW_VERSION='Hello World'
+          START_TIME='Hello World'
           npx cowsay 'Just ran a github action!!!'
 
       - name: --------------
-        run: echo $NEW_VERSION
+        run: echo $START_TIME
 
       - name: Log info
         run: echo ${{ github.job }} ${{github.run_id}} # run-actions
