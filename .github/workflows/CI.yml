@@ -57,7 +57,7 @@ jobs:
           echo runId=${{github.run_id}} >> $GITHUB_ENV
           echo obj=${{github}} >> $GITHUB_ENV
           echo $GITHUB_SHA
-          echo ${{DATADOG_API_KEY}}
+          echo ${{secrets.DATADOG_API_KEY}}
           echo commitNumber=$GITHUB_SHA >> $GITHUB_ENV
           npx cowsay 'Just ran a github action!!!'
 
