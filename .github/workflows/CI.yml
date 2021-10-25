@@ -72,9 +72,11 @@ jobs:
           echo $GITHUB_SHA
           echo ${{secrets.DATADOG_API_KEY}}
           echo commitNumber=$GITHUB_SHA >> $GITHUB_ENV
-          echo ${{ github.obj }}
+          NEW_VERSOION=Hello World
           npx cowsay 'Just ran a github action!!!'
 
+      - name: --------------
+        run: echo $NEW_VERSION
 
       - name: Log info
         run: echo ${{ github.job }} ${{github.run_id}} # run-actions
