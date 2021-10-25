@@ -3,7 +3,7 @@ const { Octokit } = require("@octokit/core");
 const octokit = new Octokit();
 //$GITHUB_SHA   github commit number
 // console.log(process.env.obj)
-console.log(process.env.commitNumber, '-------------')
+console.log('Commit Number', process.env.commitNumber)
 async function getBuildStats() {
     try {
         let { data: { jobs } } = await octokit.request('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', {
@@ -19,7 +19,7 @@ async function getBuildStats() {
         //     job_id,
         // })
         // console.log(JSON.stringify(jobs[0].steps, null, 2))
-        console.log(jobs[0].steps)
+        // console.log(jobs[0].steps)
         getTime(jobs[0].steps)
     } catch(error) {
         console.log(error)
@@ -29,14 +29,14 @@ async function getBuildStats() {
 getBuildStats()
 
 
-  function getTime(steps) {
-    steps = steps.find(item => item.name === 'Set up job')
-    let {started_at, completed_at } = steps
-    started_at = new Date(started_at).getTime()
-    completed_at = new Date(completed_at).getTime()
-    let elapsed = completed_at - started_at
-    console.log(new Date(elapsed).getMinutes(), new Date(elapsed).getSeconds())
-  }
+function getTime(steps) {
+  steps = steps.find(item => item.name === 'Set up job')
+  let {started_at, completed_at } = steps
+  started_at = new Date(started_at).getTime()
+  completed_at = new Date(completed_at).getTime()
+  let elapsed = completed_at - started_at
+  console.log(new Date(elapsed).getMinutes(), new Date(elapsed).getSeconds(), process.env.commitNumber)
+}
   
 // console.log(started_at, completed_at)
 console.log('Running a github action!')
