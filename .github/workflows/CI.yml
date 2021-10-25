@@ -72,7 +72,7 @@ jobs:
           echo $GITHUB_SHA
           echo ${{secrets.DATADOG_API_KEY}}
           echo commitNumber=$GITHUB_SHA >> $GITHUB_ENV
-          NEW_VERSION=Hello World
+          NEW_VERSION='Hello World'
           npx cowsay 'Just ran a github action!!!'
 
       - name: --------------
