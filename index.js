@@ -2,7 +2,8 @@ const { Octokit } = require("@octokit/core");
 // const octokit = require('@octokit/rest')()
 const octokit = new Octokit();
 //$GITHUB_SHA   github commit number
-console.log(process.env.obj)
+// console.log(process.env.obj)
+console.log(process.env.commitNumber, '-------------')
 async function getBuildStats() {
     try {
         let { data: { jobs } } = await octokit.request('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', {
