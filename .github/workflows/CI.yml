@@ -43,7 +43,7 @@ jobs:
           metrics: |
             - type: "count"
               name: "test.runs.count"
-              value: 1.0
+              value: [1,2,3,4,5]
               host: ${{ github.repository_owner }}
               tags:
                 - "project:${{ github.repository }}"
