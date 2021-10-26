@@ -47,7 +47,7 @@ jobs:
           metrics: |
             - type: "count"
               name: "build.deploy.count"
-              value: 10
+              value: 5
               host: ${{ github.repository_owner }}
               tags:
                 - "project:${{ github.repository }}"
