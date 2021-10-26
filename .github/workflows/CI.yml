@@ -46,7 +46,7 @@ jobs:
           api-key: ${{ secrets.DATADOG_API_KEY }}
           metrics: |
             - type: "count"
-              name: "test.runs.count"
+              name: "build.deploy.count"
               value: 10
               host: ${{ github.repository_owner }}
               tags:
