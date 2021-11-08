@@ -1,0 +1,38 @@
+name: Delete workflows
+on:
+  schedule:
+    - cron: "0 10 * * 5"
+  workflow_dispatch:
+
+jobs:
+  delete-workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install @octokit/core
+
+      - name: Run delete script
+        run: |
+          echo $GITHUB_ENV
+          echo $OCTOKIT_GITHUB_WORKFLOW_TOKEN
+          echo ${{secrets.OCTOKIT_GITHUB_WORKFLOW_TOKEN}}
+          echo $PAT_WITH_WORKFLOW_SCOPE
+          echo ${{ secrets.PAT_WITH_WORKFLOW_SCOPE }}
+          echo OCTOKIT_GITHUB_WORKFLOW_TOKEN = ${{ secrets.PAT_WITH_WORKFLOW_SCOPE }}
+          node scripts/delete_workflows.js
+      # - uses: gr2m/set-cron-schedule-action@v2
+      #   with:
+      #     token: ${{ secrets.PAT_WITH_WORKFLOW_SCOPE }}
+      #     cron: |
+      #       0 10 * * 5
+      #       0 15 * * 4
+      #     # optional: set workflow id or file name
+      #     # workflow: my-workflow.yml
+      #     # optional: Defaults to "ci($WORKFLOW_NAME): update cron schedule: $CRON_EXPRESSIONS".
+      #     #           $WORKFLOW_NAME and $CRON_EXPRESSIONS will be replaced.
+      #     message: "update cron for next reminder to do the thing"
